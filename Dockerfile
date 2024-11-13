@@ -10,6 +10,9 @@ RUN apt update \
 ENV R_LIBS_USER=/home/rstudio/R/library
 RUN R -e "install.packages(c('maps'), repos='https://cloud.r-project.org/', dependencies=TRUE)"
 
+# Graphics device setup
+COPY Rprofile /home/rstudio/.Rprofile
+
 # Theme setup
 COPY rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
 RUN chown rstudio:rstudio /home/rstudio/.config/rstudio/rstudio-prefs.json
