@@ -1,3 +1,6 @@
 {
-	"editor_theme": "Katzenmilch"
+	"editor_theme": "Katzenmilch",
+ 	"graphics_backend_enabled": true,
+	"graphics_device": "cairo",
+	"cairo_pdf_graphics_device": true
 }
