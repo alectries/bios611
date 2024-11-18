@@ -1,5 +1,5 @@
-# map_tornadoes.R
-# Create an animated timeline map of tornado events.
+# cluster_cost.R
+# Cluster and view storm events by property damage and location.
 # requires: source_data/1974_2024-08_stormevents.rds
 
 # Libraries
