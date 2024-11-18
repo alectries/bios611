@@ -1,0 +1,13 @@
+```{r setup, echo = FALSE}
+
+```
+
+
+## Plots
+
+### Tornadoes over time
+
+```{r tornado-animated, echo = FALSE}
+source("./scripts/map_tornadoes.R")
+knitr::include_graphics("tornado_plot.gif")
+```
