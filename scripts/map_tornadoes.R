@@ -5,6 +5,8 @@
 # Libraries
 require(tidyverse)
 require(gganimate)
+options(bitmapType = "cairo")
+png("plot.png", type="cairo")
 
 # Data
 stormevents <- readRDS("./source_data/1974_2024-08_stormevents.rds")
@@ -60,9 +62,11 @@ plot <- ggplot() +
   labs(title = '{closest_state}')
 
 anim <- animate(plot, 
-                renderer = magick_renderer("tornado_plot.gif"),
+                renderer = file_renderer("tornado_plot.gif"),
                 device = 'png',
                 height = 800, 
                 width = 1200)
 
 anim_save("tornado_plot.gif", animation = anim)
+
+dev.off()
