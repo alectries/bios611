@@ -3,12 +3,12 @@ FROM alectries/univr
 
 # Install apt packages
 RUN apt update \
-&& apt install vim-tiny -y \
+&& apt install vim-tiny libmagick++-dev libudunits2-dev cargo libavfilter-dev libgdal-dev -y \
 && rm -rf /var/lib/apt/lists/*
 
 # Install R packages
 ENV R_LIBS_USER=/home/rstudio/R/library
-RUN R -e "install.packages(c('maps'), repos='https://cloud.r-project.org/', dependencies=TRUE)"
+RUN R -e "install.packages(c('maps', 'gganimate', 'Cairo', 'rsvg'), repos='https://cloud.r-project.org/', dependencies=TRUE)"
 
 # Graphics device setup
 COPY Rprofile /home/rstudio/.Rprofile
