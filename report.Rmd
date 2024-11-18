@@ -8,6 +8,16 @@
 ### Tornadoes over time
 
 ```{r tornado-animated, echo = FALSE}
-source("./scripts/map_tornadoes.R")
-knitr::include_graphics("tornado_plot.gif")
+#source("./scripts/map_tornadoes.R")
+#knitr::include_graphics("tornado_plot.gif")
 ```
+
+### Kmeans
+
+```{r kmeans, echo = FALSE}
+source("./scripts/cluster_cost.R")
+plot_klat
+plot_klon
+plot_kmap
+```
+
