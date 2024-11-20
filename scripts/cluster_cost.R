@@ -1,6 +1,7 @@
 # cluster_cost.R
 # Cluster and view storm events by property damage and location.
 # requires: source_data/1974_2024-08_stormevents.rds
+# outputs: plots/plot_klat.png, plots/plot_klon.png, plots/plot_kmap.png
 
 # Libraries
 require(tidyverse)
@@ -27,28 +28,19 @@ stormevents <- readRDS("./source_data/1974_2024-08_stormevents.rds") %>%
   filter(!is.na(DAMAGE_PROPERTY) & !is.na(END_LAT) & !is.na(END_LON) & DAMAGE_PROPERTY != 0)
 
 # kmeans
-stormevents_klat <- add_column(
-  stormevents,
-  kmeans(select(stormevents, -EVENT_ID, -END_LON), 5)[1] %>% 
-    as.data.frame()
-)
-stormevents_klon <- add_column(
-  stormevents,
-  kmeans(select(stormevents, -EVENT_ID, -END_LAT), 5)[1] %>% 
-    as.data.frame()
-)
 stormevents_k <- add_column(
   stormevents,
   kmeans(select(stormevents, -EVENT_ID), 5)[1] %>% 
     as.data.frame()
-) %>% 
+)
+stormevents_kmap <- stormevents_k %>% 
   filter(
     cluster != pull(slice(arrange(summarize(group_by(., cluster), n = n()), desc(n)), 1), cluster)
   )
   
 
 # Graph
-plot_klat <- stormevents_klat %>% 
+plot_klat <- stormevents_k %>% 
   ggplot(aes(x = DAMAGE_PROPERTY, y = END_LAT, color = as.character(cluster))) +
   geom_point() +
   labs(
@@ -58,7 +50,7 @@ plot_klat <- stormevents_klat %>%
   ) +
   scale_color_brewer(palette = "Set1") +
   theme_minimal()
-plot_klon <- stormevents_klon %>% 
+plot_klon <- stormevents_k %>% 
   ggplot(aes(x = END_LON, y = DAMAGE_PROPERTY, color = as.character(cluster))) +
   geom_point() +
   labs(
@@ -77,7 +69,7 @@ plot_kmap <- ggplot() +
     fill = "white"
   ) +
   geom_point(
-    data = filter(stormevents_k),
+    data = filter(stormevents_kmap),
     aes(x = END_LON, y = END_LAT, size = DAMAGE_PROPERTY / 1e9,
         color = as.character(cluster))
   ) +
@@ -90,3 +82,8 @@ plot_kmap <- ggplot() +
   ) +
   scale_color_brewer(palette = "Set1") +
   theme_void()
+
+# Render
+ggsave("plots/plot_klat.png", plot = plot_klat)
+ggsave("plots/plot_klon.png", plot = plot_klon)
+ggsave("plots/plot_kmap.png", plot = plot_kmap)
