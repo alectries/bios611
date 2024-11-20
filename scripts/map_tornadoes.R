@@ -62,7 +62,7 @@ plot <- ggplot() +
   labs(title = '{closest_state}')
 
 anim <- animate(plot, 
-                renderer = file_renderer("tornado_plot.gif"),
+                renderer = gifski_renderer("tornado_plot.gif"),
                 device = 'png',
                 height = 800, 
                 width = 1200)
