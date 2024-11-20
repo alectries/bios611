@@ -1,8 +1,6 @@
 .PHONY: clean
 
 clean:
-	rm -rf deriv
-	rm -rf logs
-	rm -rf figs
+	rm -f plots/*
 
 report.pdf: report.Rmd
