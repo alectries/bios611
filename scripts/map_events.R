@@ -1,7 +1,7 @@
 # map_events.R
 # Create a map of all storm events in the database, regardless of year and type. Jumping-off point for analysis.
 # requires: source_data/1974_2024-08_stormevents.rds
-# outputs: plots/plot_events.png, plots/plot_recent.png
+# outputs: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png
 
 # Libraries
 require(tidyverse)
