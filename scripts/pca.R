@@ -1,7 +1,7 @@
 # pca_year.R
 # Determine the most relevant data points for predicting an event's year.
 # requires: source_data/1974_2024-08_stormevents.rds
-# outputs: plots/kable_pca_year.rds
+# outputs: plots/kable_pc1.rds, plots/kable_pc2.rds
 
 # Libraries
 require(tidyverse)
@@ -48,11 +48,18 @@ stormevents <- readRDS("./source_data/1974_2024-08_stormevents.rds") %>%
   filter(across(everything(), ~!is.na(.)))
 
 # PCA
-pca <- prcomp(stormevents)
+pca <- prcomp(select(stormevents, -EVENT_ID))
 
 # Show first principal component
 pca$rotation[,1] %>% 
   as_tibble(rownames = "variable") %>% 
   arrange(desc(abs(value))) %>% 
   knitr::kable() %>% 
-  saveRDS(file = "plots/kable_pca_year.rds")
+  saveRDS(file = "plots/kable_pc1.rds")
+
+# Show second prinicpal component
+pca$rotation[,2] %>% 
+  as_tibble(rownames = "variable") %>% 
+  arrange(desc(abs(value))) %>% 
+  knitr::kable() %>% 
+  saveRDS(file = "plots/kable_pc2.rds")
