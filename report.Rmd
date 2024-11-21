@@ -2,7 +2,7 @@
 title: "Severe Weather Events in the United States"
 subtitle: "For BIOS 611"
 author: "Alec Higgins"
-date: "Produced by December 4, 2024.`"
+date: "Produced by December 4, 2024."
 output:
   html_document:
     toc: true
@@ -12,7 +12,7 @@ output:
 ```{r, echo = FALSE}
 # report.Rmd
 # Text of report to render.
-# requires: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png, 
+# requires: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png, plot_klat.png, plot_klon.png, plot_kmap.png, kable_pc1.rds, kable_pc2.rds
 # outputs: report.html
 
 `%>%` <- magrittr::`%>%`
@@ -44,12 +44,14 @@ These tables show the rotations of the first and second principal components. Th
 
 ```{r, echo = FALSE}
 readRDS("plots/kable_pc1.rds") %>% 
-  kableExtra::add_header_above("PC1" = 2) %>% 
+  kableExtra::add_header_above(c("PC1" = 2)) %>% 
   kableExtra::kable_material()
 readRDS("plots/kable_pc2.rds") %>% 
-  kableExtra::add_header_above("PC2" = 2) %>% 
+  kableExtra::add_header_above(c("PC2" = 2)) %>% 
   kableExtra::kable_material()
 ```
+
+This analysis shows that monetary damage to property and crops are the most variable items in the data. The next section of the report will illustrate the variability in property damage in terms of the affected location.
 
 # Risk to Property
 
