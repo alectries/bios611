@@ -12,13 +12,13 @@ output:
 ```{r, echo = FALSE}
 # report.Rmd
 # Text of report to render.
-# requires: 
+# requires: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png, 
 # outputs: report.html
 ```
 
 # Data Background
 
-The data used for this report was downloaded from the National Centers for Environmental Information, part of NOAA. Each year's data can be found as a compressed CSV file in [NCEI's Storm Events files](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/). The StormEvents_details files from 1974 to 2024 were pulled for this analysis.
+The data used for this report was downloaded from the National Centers for Environmental Information (NCEI), part of NOAA. Each year's data can be found as a compressed CSV file in [NCEI's Storm Events files](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/). The StormEvents_details files from 1974 to 2024 were pulled for this analysis.
 
 Below is a map of every storm event recorded with location data from 1974 to 2024.
 
@@ -35,3 +35,23 @@ And here are just tornadoes from the last 20 years, as an example:
 The dataset contains a significant amount of information about each storm event. Details about the included information can be located in the [codebook](./source_data/stormevents_codebook.pdf).
 
 # Risk to Property
+
+For this analysis, the kmeans algorithm was used to cluster storm events according to their location (as longitude and latitude) and the recorded amount of property damage they caused. After several trials and a visual analysis, grouping into five clusters appeared most appropriate.
+
+The following visualization shows clusters by latitude (on the vertical axis) and property damage (with the events furthest to the right representing the greatest damage). Each point is a unique storm event.
+
+![](plots/plot_klat.png)
+
+The most damaging storms in the dataset all occurred near the 30th parallel. Other damaging storms generally occurred in the southern part of the United States, whose 48 continental states are between the 25th and 50th parallels.
+
+The next visualization shows clusters by longitude (on the horizontal axis) and property damage (with the events furthest to the left representing the greatest damage). Again, each point is a unique storm event. Cluster colors are conserved.
+
+![](plots/plot_klon.png)
+
+Here, it is apparent that most highly damaging storms occur between 80 and 100 degrees West – these longitudes surround the Gulf of Mexico and represent the most vulnerable parts of the American Southeast to hurricanes.
+
+Last, a map has been generated from this clustering to display these storms on a map. The size of the point corresponds to the amount of property damage done by the storm, and the color represents the cluster. You'll notice one cluster has been removed from this visualization, because that cluster includes the vast majority of storms that were minimally damaging and would overcrowd the map if displayed.
+
+![](plots/plot_kmap.png)
+
+This analysis confirms what we generally know to be true: that the most damaging storms tend to occur near the Gulf of Mexico, and that damaging storms most commonly occur throughout the Southeast and Midwest. It is interesting that the most damaging storms in the dataset are all near Houston, Texas; this is potentially due to a lack of geographic data for many storms in the data, with hurricane location data frequently missing.
