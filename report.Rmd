@@ -14,6 +14,8 @@ output:
 # Text of report to render.
 # requires: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png, 
 # outputs: report.html
+
+`%>%` <- magrittr::`%>%`
 ```
 
 # Data Background
@@ -33,6 +35,21 @@ And here are just tornadoes from the last 20 years, as an example:
 ![](plots/plot_tornado.png)
 
 The dataset contains a significant amount of information about each storm event. Details about the included information can be located in the [codebook](./source_data/stormevents_codebook.pdf).
+
+# Principal Component Analysis
+
+PCA was used to find the variables in the data with the most variability across observations in the data that were complete cases with respect to quantitative data available.
+
+These tables show the rotations of the first and second principal components. The higher the absolute value of a variable's rotation, the more variability it has in the data.
+
+```{r, echo = FALSE}
+readRDS("plots/kable_pc1.rds") %>% 
+  kableExtra::add_header_above("PC1" = 2) %>% 
+  kableExtra::kable_material()
+readRDS("plots/kable_pc2.rds") %>% 
+  kableExtra::add_header_above("PC2" = 2) %>% 
+  kableExtra::kable_material()
+```
 
 # Risk to Property
 
