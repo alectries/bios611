@@ -27,7 +27,7 @@ report.pdf will then appear in the main folder, and you can open it in your pref
 
 ### Developer Mode
 
-The container also loads and runs RStudio Server. You can access RStudio Server by using your preferred browser to navigate to [localhost:8787](localhost:8787). Regardless of any environment variables you may use, the username is `rstudio` and the password is `login`. You will need to run `setwd("~/working")` in your RStudio console to interactively run scripts and build objects.
+The container also loads and runs RStudio Server. You can access RStudio Server by using your preferred browser to navigate to [localhost:8787](http://localhost:8787). Regardless of any environment variables you may use, the username is `rstudio` and the password is `login`. You will need to run `setwd("~/working")` in your RStudio console to interactively run scripts and build objects.
 
 ### Resetting the Project
 
