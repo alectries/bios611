@@ -24,4 +24,6 @@ plots/kable_pc1.rds plots/kable_pc2.rds: \
 source_data/1974_2024-08_stormevents.rds scripts/pca.R
 	Rscript scripts/pca.R
 
-plots/words.rds: source_da
+plots/words.rds: source_data/1974_2024-08_stormevents.rds \
+scripts/count_words.R
+	Rscript scripts/count_words.R
