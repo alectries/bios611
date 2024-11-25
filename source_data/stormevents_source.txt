@@ -1,1 +1,3 @@
 https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
+
+stopwords from: https://gist.github.com/larsyencken/1440509
