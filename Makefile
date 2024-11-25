@@ -27,3 +27,7 @@ source_data/1974_2024-08_stormevents.rds scripts/pca.R
 plots/words.rds: source_data/1974_2024-08_stormevents.rds \
 scripts/count_words.R
 	Rscript scripts/count_words.R
+
+plots/top_50.png plots/weather_related.png: \
+plots/words.rds source_data/stopwords.txt scripts/plot_word_counts.R
+	Rscript scripts/plot_word_counts.R
