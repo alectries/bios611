@@ -1,0 +1,18 @@
+# narratives.R
+# Count word frequency in data and uncover associations with other variables.
+# requires: source_data/1974_2024-08_stormevents.rds
+# outputs: 
+
+# Libraries
+`%>%` <- magrittr::`%>%`
+
+# Count words
+stormevents <- readRDS("./source_data/1974_2024-08_stormevents.rds") %>% 
+  dplyr::select(EVENT_ID, EVENT_NARRATIVE) %>% 
+  dplyr::filter(!is.na(EVENT_NARRATIVE)) %>%
+  dplyr::mutate(EVENT_ID = as.numeric(EVENT_ID)) %>%
+  tidytext::unnest_tokens(word, EVENT_NARRATIVE) %>%
+  dplyr::count(EVENT_ID, word)
+
+# Save data
+saveRDS(stormevents, "plots/words.rds")
