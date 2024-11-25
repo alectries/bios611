@@ -1,7 +1,7 @@
-# narratives.R
-# Count word frequency in data and uncover associations with other variables.
+# count_words.R
+# Count word frequency in data.
 # requires: source_data/1974_2024-08_stormevents.rds
-# outputs: 
+# outputs: plots/words.rds
 
 # Libraries
 `%>%` <- magrittr::`%>%`
