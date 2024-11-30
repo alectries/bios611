@@ -74,3 +74,14 @@ Last, a map has been generated from this clustering to display these storms on a
 ![](plots/plot_kmap.png)
 
 This analysis confirms what we generally know to be true: that the most damaging storms tend to occur near the Gulf of Mexico, and that damaging storms most commonly occur throughout the Southeast and Midwest. It is interesting that the most damaging storms in the dataset are all near Houston, Texas; this is potentially due to a lack of geographic data for many storms in the data, with hurricane location data frequently missing.
+
+# Narratives
+
+Each storm event in the data has a free-text narrative field, which contains written details of the event listed. These are the top 50 words in the dataset, when stopwords are removed:
+
+![](plots/plot_top50.png)
+
+To demonstrate the relative frequency of different weather event types in the data, a selection of terms derived from event types is shown below.
+
+![](plots/plot_weatherterms.png)
+
