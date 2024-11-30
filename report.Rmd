@@ -85,3 +85,13 @@ To demonstrate the relative frequency of different weather event types in the da
 
 ![](plots/plot_weatherterms.png)
 
+The frequency of words in the narrative sections varies widely by event type. Displayed below are the top 20 words for each of a selection of event types.
+
+```{r, echo = FALSE}
+readRDS("plots/kable_wordsbytype.rds") %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::add_header_above(c(" " = 1, "Event Type" = 7)) %>% 
+  kableExtra::kable_material()
+```
+
+Due to the uniqueness of these descriptions, the narrative fields contain terms that may be useful in identifying an event type even if one is not present. This would be an interesting topic for further analysis given more time.
