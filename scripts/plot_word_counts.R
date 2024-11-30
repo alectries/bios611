@@ -1,7 +1,7 @@
-# count_words.R
-# Count word frequency in data.
+# plot_word_counts.R
+# Generate plots of word frequency in data.
 # requires: plots/words.rds, source_data/stopwords.txt
-# outputs: plots/top_50.png, plots/weather_related.png
+# outputs: plots/plot_top50.png, plots/plot_weatherterms.png
 
 # Libraries
 require(tidyverse)
@@ -47,5 +47,5 @@ weather_related <- all %>%
   )
 
 # Save
-ggsave("plots/top_50.png", plot = top_50)
-ggsave("plots/weather_related.png", plot = weather_related)
+ggsave("plots/plot_top50.png", plot = top_50)
+ggsave("plots/plot_weatherterms.png", plot = weather_related)
