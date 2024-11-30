@@ -22,7 +22,7 @@ output:
 
 The data used for this report was downloaded from the National Centers for Environmental Information (NCEI), part of NOAA. Each year's data can be found as a compressed CSV file in [NCEI's Storm Events files](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/). The StormEvents_details files from 1974 to 2024 were pulled for this analysis.
 
-Below is a map of every storm event recorded with location data from 1974 to 2024.
+Below is a map of all storm events recorded with location data from 1974 to 2024 that were in or near the continental United States.
 
 ![](plots/plot_events.png)
 
@@ -51,7 +51,7 @@ readRDS("plots/kable_pc2.rds") %>%
   kableExtra::kable_material()
 ```
 
-This analysis shows that monetary damage to property and crops are the most variable items in the data. The next section of the report will illustrate the variability in property damage in terms of the affected location.
+This analysis shows that monetary damage to property and crops are the most variable items in the data and that property and crop damage do not vary in tandem. The next section of the report will illustrate the variability in property damage in terms of the affected location.
 
 # Risk to Property
 
@@ -63,13 +63,13 @@ The following visualization shows clusters by latitude (on the vertical axis) an
 
 The most damaging storms in the dataset all occurred near the 30th parallel. Other damaging storms generally occurred in the southern part of the United States, whose 48 continental states are between the 25th and 50th parallels.
 
-The next visualization shows clusters by longitude (on the horizontal axis) and property damage (with the events furthest to the left representing the greatest damage). Again, each point is a unique storm event. Cluster colors are conserved.
+The next visualization shows clusters by longitude (on the horizontal axis) and property damage (with the events highest on the chart representing the greatest damage). Again, each point is a unique storm event. Cluster colors are conserved.
 
 ![](plots/plot_klon.png)
 
 Here, it is apparent that most highly damaging storms occur between 80 and 100 degrees West – these longitudes surround the Gulf of Mexico and represent the most vulnerable parts of the American Southeast to hurricanes.
 
-Last, a map has been generated from this clustering to display these storms on a map. The size of the point corresponds to the amount of property damage done by the storm, and the color represents the cluster. You'll notice one cluster has been removed from this visualization, because that cluster includes the vast majority of storms that were minimally damaging and would overcrowd the map if displayed.
+Last, a map has been generated from the clustered data. The size of the point corresponds to the amount of property damage done by the storm, and the color represents the cluster. You'll notice one cluster has been removed from this visualization: that cluster includes the vast majority of storms that were minimally damaging and would overcrowd the map if displayed.
 
 ![](plots/plot_kmap.png)
 
