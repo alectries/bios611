@@ -9,6 +9,7 @@ report: report.html
 
 report.html: report.Rmd plots/plot_events.png plots/plot_recent.png \
 plots/plot_tornado.png plots/plot_klat.png plots/plot_klon.png \
+plots/plot_top50.png plots/plot_weatherterms.png \
 plots/plot_kmap.png plots/kable_pc1.rds plots/kable_pc2.rds
 	Rscript -e 'rmarkdown::render("report.Rmd", "html_document")'
 
@@ -28,6 +29,6 @@ plots/words.rds: source_data/1974_2024-08_stormevents.rds \
 scripts/count_words.R
 	Rscript scripts/count_words.R
 
-plots/top_50.png plots/weather_related.png: \
+plots/plot_top50.png plots/plot_weatherterms.png: \
 plots/words.rds source_data/stopwords.txt scripts/plot_word_counts.R
 	Rscript scripts/plot_word_counts.R
