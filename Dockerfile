@@ -8,7 +8,7 @@ RUN apt update \
 
 # Install R packages
 ENV R_LIBS_USER=/home/rstudio/R/library
-RUN R -e "install.packages(c('maps', 'gganimate', 'Cairo', 'kableExtra', 'tidytext'), repos='https://cloud.r-project.org/', dependencies=TRUE)"
+RUN R -e "install.packages(c('maps', 'Cairo', 'kableExtra', 'tidytext'), repos='https://cloud.r-project.org/', dependencies=TRUE)"
 
 # Graphics device setup
 COPY Rprofile /home/rstudio/.Rprofile
