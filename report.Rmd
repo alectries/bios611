@@ -5,6 +5,9 @@ author: "Alec Higgins"
 date: "Originally produced December 2, 2024"
 output:
   pdf_document
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r, echo = FALSE}

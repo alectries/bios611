@@ -16,14 +16,23 @@ You only need to clone the repository and build the image once. You can then run
 
 ### Building and Viewing the Report As-Is
 
-Once the container is running, run the following code in the terminal to build the report:
+Once the container is running, run the following in the terminal to build the report:
 
 ```         
 cd /home/rstudio/working
 make report
 ```
 
-report.pdf will then appear in the main folder, and you can open it in your preferred viewing software.
+report.html will then appear in the main folder, and you can open it in your preferred web browser.
+
+You can also produce the report as a PDF with the following command:
+
+```
+cd /home/rstudio/working
+make report.pdf
+```
+
+HTML is the preferred format for viewing this report, but all visualizations are viewable (though less aesthetically pleasing) in the PDF.
 
 ### Developer Mode
 
