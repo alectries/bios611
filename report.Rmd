@@ -2,7 +2,7 @@
 title: "Severe Weather Events in the United States"
 subtitle: "For BIOS 611"
 author: "Alec Higgins"
-date: "Produced by December 4, 2024."
+date: "Originally produced December 2, 2024"
 output:
   html_document:
     toc: true
@@ -12,7 +12,7 @@ output:
 ```{r, echo = FALSE}
 # report.Rmd
 # Text of report to render.
-# requires: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png, plot_klat.png, plot_klon.png, plot_kmap.png, kable_pc1.rds, kable_pc2.rds
+# requires: plots/plot_events.png, plots/plot_recent.png, plots/plot_tornado.png, plot_klat.png, plot_klon.png, plot_kmap.png, kable_pc1.rds, kable_pc2.rds, plots/plot_top50.png, plots/plot_weatherterms.png, plots/kable_wordsbytype.rds
 # outputs: report.html
 
 `%>%` <- magrittr::`%>%`
@@ -95,3 +95,11 @@ readRDS("plots/kable_wordsbytype.rds") %>%
 ```
 
 Due to the uniqueness of these descriptions, the narrative fields contain terms that may be useful in identifying an event type even if one is not present. This would be an interesting topic for further analysis given more time.
+
+# Conclusions
+
+The data in the storm events files are largely as expected. The conclusions of this report are as follows:
+
+1. Of the quantitative variables provided, property damage and crop damage are highly variable.
+2. The greatest property damage by storm events in the United States tends to occur in the Southeast, where property is most vulnerable to hurricanes. Property damage is otherwise spread throughout the continental 48 states, though the mountain states appear less vulnerable.
+3. The narrative descriptions of storms differ widely by storm type and may be useful in classifying historical weather events with poor data collection standards.
