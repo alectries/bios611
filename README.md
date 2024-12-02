@@ -27,7 +27,7 @@ report.html will then appear in the main folder, and you can open it in your pre
 
 You can also produce the report as a PDF with the following command:
 
-```
+```         
 cd /home/rstudio/working
 make report.pdf
 ```
@@ -50,3 +50,25 @@ make clean
 ## Project State
 
 This project is now complete.
+
+## Sources
+
+The storm events data used for this report is produced by the National Centers for Environmental Information (part of the National Oceanic and Atmospheric Administration, NOAA), and can be [downloaded online](https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/).
+
+The stopwords list used in the event narratives analysis was written by Lars Yencken and can be found [on GitHub](https://gist.github.com/larsyencken/1440509).
+
+Several R packages are installed on this container. They are listed below along with links to them online:
+
+-   [Tidyverse](https://www.tidyverse.org)
+
+-   [devtools](https://devtools.r-lib.org/index.html)
+
+-   [maps](https://cran.r-project.org/package=maps)
+
+-   [Cairo](http://www.rforge.net/Cairo/index.html)
+
+-   [kableExtra](http://haozhu233.github.io/kableExtra/)
+
+-   [tidytext](https://juliasilge.github.io/tidytext/)
+
+The Docker container upon which this project is built is UnivR, which I designed and you can find on [Docker Hub](https://hub.docker.com/r/alectries/univr). UnivR was created with the help of [these very useful instructions](https://github.com/dipterix/arm-rstudio-server) and some AI troubleshooting provided by Claude and Perplexity.
