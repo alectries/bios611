@@ -23,7 +23,7 @@ cd /home/rstudio/working
 make report
 ```
 
-report.pdf will then appear in the main folder, and you can open it in your preferred PDF viewing software.
+report.pdf will then appear in the main folder, and you can open it in your preferred viewing software.
 
 ### Developer Mode
 
@@ -40,4 +40,4 @@ make clean
 
 ## Project State
 
-This project is still in progress as of writing. However, a preview version of the report will currently build using the above instructions. Feel free to clone and build.
+This project is is complete.

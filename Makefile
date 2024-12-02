@@ -3,15 +3,15 @@
 
 clean:
 	rm -f plots/*
-	rm report.html
+	rm report.pdf
 
-report: report.html
+report: report.pdf
 
-report.html: report.Rmd plots/plot_events.png plots/plot_recent.png \
+report.pdf: report.Rmd plots/plot_events.png plots/plot_recent.png \
 plots/plot_tornado.png plots/plot_klat.png plots/plot_klon.png \
 plots/plot_top50.png plots/plot_weatherterms.png \
 plots/plot_kmap.png plots/kable_pc1.rds plots/kable_pc2.rds
-	Rscript -e 'rmarkdown::render("report.Rmd", "html_document")'
+	Rscript -e 'rmarkdown::render("report.Rmd", "pdf_document")'
 
 plots/plot_events.png plots/plot_recent.png plots/plot_tornado.png: \
 source_data/1974_2024-08_stormevents.rds scripts/map_events.R
