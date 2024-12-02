@@ -3,8 +3,8 @@
 
 clean:
 	rm -f plots/*
-	rm report.pdf
-	rm report.html
+	rm -f report.pdf
+	rm -f report.html
 
 report: report.html
 
