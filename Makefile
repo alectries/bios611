@@ -4,6 +4,7 @@
 clean:
 	rm -f plots/*
 	rm -f report.pdf
+	rm -f report.aux
 	rm -f report.html
 
 report: report.html
