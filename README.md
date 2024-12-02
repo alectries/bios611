@@ -49,4 +49,4 @@ make clean
 
 ## Project State
 
-This project is is complete.
+This project is now complete.
