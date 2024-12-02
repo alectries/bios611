@@ -4,7 +4,7 @@
 # outputs: plots/plot_klat.png, plots/plot_klon.png, plots/plot_kmap.png
 
 # Libraries
-require(tidyverse)
+suppressPackageStartupMessages(require(tidyverse))
 
 # Data
 stormevents <- readRDS("./source_data/1974_2024-08_stormevents.rds") %>% 

@@ -3,8 +3,8 @@
 # requires: source_data/1974_2024-08_stormevents.rds
 
 # Libraries
-require(tidyverse)
-require(gganimate)
+suppressPackageStartupMessages(require(tidyverse))
+suppressPackageStartupMessages(require(gganimate))
 options(bitmapType = "cairo")
 png("plot.png", type="cairo")
 

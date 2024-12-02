@@ -4,7 +4,7 @@
 # outputs: plots/plot_top50.png, plots/plot_weatherterms.png
 
 # Libraries
-require(tidyverse)
+suppressPackageStartupMessages(require(tidyverse))
 options(scipen = 999)
 
 # Data

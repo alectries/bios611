@@ -4,7 +4,7 @@
 # outputs: plots/kable_pc1.rds, plots/kable_pc2.rds
 
 # Libraries
-require(tidyverse)
+suppressPackageStartupMessages(require(tidyverse))
 
 # Data
 stormevents <- readRDS("./source_data/1974_2024-08_stormevents.rds") %>% 
